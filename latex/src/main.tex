@@ -74,8 +74,35 @@ title       = #1,       % 标题格式
 {\lstset{keywordstyle=\color{black},stringstyle=\color{black},commentstyle=\color{black}}}
 {}
 
+\usepackage{tikz}
+
 % Document
 \begin{document}
+  \begin{sloppypar} %latex中一行文字出现溢出问题的解决方法
+    %\maketitle
+
+    \begin{center}
+      \thispagestyle{empty}
+      %\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{cover.jpg}
+      \begin{tikzpicture}[remember picture, overlay, inner sep=0pt]
+        \node at (current page.center)
+        {\includegraphics[width=\paperwidth, keepaspectratio=false]{cover.jpg}};
+      \end{tikzpicture}
+      \newpage
+      \thispagestyle{empty}
+      \huge
+      \textbf{C++17 - The Complete Guide}
+      \\[9pt]
+      \normalsize
+      作者: \href{http://www.josuttis.com/welcomee.html}{Nicolai M. Josuttis}
+      \\[8pt]
+      \normalsize
+      译者：\href{https://github.com/MeouSker77/Cpp17}{MeouSker77}
+      \\[8pt]
+      \normalsize
+      版本：\href{http://leanpub.com/cpp17}{2019-12-20}
+    \end{center}
+
     \frontmatter
     \setcounter{secnumdepth}{0}
     \pagestyle{front}
@@ -163,4 +190,5 @@ title       = #1,       % 标题格式
     \include{ch35}
 
     \backmatter
+  \end{sloppypar}
 \end{document}
